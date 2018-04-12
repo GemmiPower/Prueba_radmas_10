@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ListView lvLibros;
-    EditText editB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             try{
                 URL url=new URL(params[0]);
                 URLConnection con=url.openConnection();
-                String s; //?
+                String s;
                 InputStream is=con.getInputStream();
                 BufferedReader bf=new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
                 while((s=bf.readLine())!=null){
@@ -63,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     data += job.getString("editorial") + "|";
                     data += job.getInt("paginas");
                     datosLibros.add(data);
+
                 }
                 cargarLista(datosLibros);
 
